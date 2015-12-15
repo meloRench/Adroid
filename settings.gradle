@@ -1,1 +1,1 @@
-include ':app', ':test', ':viewpager', ':tablayout', ':cardnews', ':app1', ':toolbar'
+include ':app', ':test', ':viewpager', ':tablayout', ':cardnews', ':app1', ':toolbar', ':news'

@@ -3,11 +3,17 @@ package com.rc.news;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +24,26 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        initTabLayout();
+
+      /*  ViewPager viewPager =(ViewPager)findViewById(R.id.viewpager);
+
+
+        TabLayout tabLayout =(TabLayout)findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_news)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_pics)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_gmae)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_bbs)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_hupuJrs)));
+*/
+//        MyAdapter adapter =new MyAdapter(getSupportFragmentManager());
+//        adapter.addFrag(new )
+//        viewPager.setAdapter(adapter);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,7 +52,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+   /*
+    private void setupViewPager(){
+        final ViewPager viewPager =(ViewPager)findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
 
+        TabLayout tabLayout =(ViewPager)findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -48,5 +81,43 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private void initTabLayout(){
+        TabLayout tabLayout=(TabLayout)findViewById(R.id.tabs);
+        ViewPager viewPager=(ViewPager)findViewById(R.id.viewpager);
+
+        List<String> tablist =new ArrayList<>();
+        tablist.add(getString(R.string.tabTitle_news));
+        tablist.add(getString(R.string.tabTitle_pics));
+        tablist.add(getString(R.string.tabTitle_gmae));
+        tablist.add(getString(R.string.tabTitle_bbs));
+        tablist.add(getString(R.string.tabTitle_hupuJrs));
+
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+
+        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(0)));
+        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(1)));
+        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(2)));
+        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(3)));
+        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(4)));
+
+        List<Fragment> fragmentList = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Fragment f1 = new MyFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("content", "hahaha");
+            f1.setArguments(bundle);
+            fragmentList.add(f1);
+        }
+
+        MyAdapter adapter=new MyAdapter(getSupportFragmentManager(),fragmentList,tablist);
+        viewPager.setAdapter(adapter);
+
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setTabsFromPagerAdapter(adapter);
+
+
     }
 }

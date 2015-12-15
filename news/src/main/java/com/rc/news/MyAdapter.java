@@ -14,10 +14,13 @@ import java.util.List;
 public class MyAdapter extends FragmentPagerAdapter {
 
     List<Fragment> list_fragment ;
+    private List<String> mTitles;
 
-    public MyAdapter(FragmentManager fm) {
+
+    public MyAdapter(FragmentManager fm,List<Fragment> fragments,List<String> titles) {
         super(fm);
-//        this.list_fragment = list_fragment;
+        this.list_fragment = fragments;
+        this.mTitles = titles;
     }
 
     @Override
@@ -29,11 +32,11 @@ public class MyAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return list_fragment.size();
     }
-/*
-    //此方法用来显示tab上的名字
+
     @Override
     public CharSequence getPageTitle(int position) {
 
-        return list_Title.get(position % list_Title.size());
-    }*/
+//        return mTitles.get(position % mTitles.size());
+        return mTitles.get(position);
+    }
 }

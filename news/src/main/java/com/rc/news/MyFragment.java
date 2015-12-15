@@ -1,12 +1,11 @@
 package com.rc.news;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -28,19 +27,39 @@ public class MyFragment extends Fragment {
     tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_hupuJrs)));
 
     */
-//        myAdapter adapter =new myAdapter(getSupportFragmentManager());
+//        MyAdapter adapter =new MyAdapter(getSupportFragmentManager());
 //        adapter.addFrag(new )
 //        viewPager.setAdapter(adapter);
 
-    private TabLayout tabLayout ;
+   /* private TabLayout tabLayout ;
     private ViewPager viewPager;
-    private myAdapter adapter;
+    private MyAdapter adapter;
+*/
+    private String content;
+    private View view;
 
-    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle saveInstanceState){
-        View v=inflater.inflate(R.layout.myfragment,container,false);
-        return v;
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
 
     }
+
+    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle saveInstanceState){
+         view=inflater.inflate(R.layout.myfragment,container,false);
+
+        return view;
+
+
+    }
+    public void onActivityCreated(Bundle savedInstanceState){
+        super.onActivityCreated(savedInstanceState);
+        content = getArguments().getString("content");
+        TextView tvContent = (TextView)view.findViewById(R.id.tab_content);
+        tvContent.setText(content + "");
+    }
+
+
+
 
 
 }
