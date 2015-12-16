@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.rc.news.adapter.MyFragmentAdapter;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "这个按钮很好看^_^但是并没有什么卵用~", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -95,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         tabLayout.addTab(tabLayout.newTab().setText(tablist.get(0)));
-        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(1)));
-        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(2)));
-        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(3)));
-        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(4)));
+        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(nba_1)));
+        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(nba_2)));
+        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(nba_3)));
+        tabLayout.addTab(tabLayout.newTab().setText(tablist.get(nba_4)));
 
         List<Fragment> fragmentList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < nba_5; i++) {
             Fragment f1 = new FragmentIndex();
             Bundle bundle = new Bundle();
             bundle.putString("content", "hahaha");
@@ -117,10 +119,10 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
 
         adapter.addFrag(new FragmentIndex(), getString(R.string.tabTitle_news));
-        adapter.addFrag(new FragmentIndex(), getString(R.string.tabTitle_pics));
-        adapter.addFrag(new FragmentIndex(), getString(R.string.tabTitle_gmae));
-        adapter.addFrag(new FragmentIndex(), getString(R.string.tabTitle_bbs));
-        adapter.addFrag(new FragmentIndex(), getString(R.string.tabTitle_hupuJrs));
+        adapter.addFrag(new FragmentPic(), getString(R.string.tabTitle_pics));
+        adapter.addFrag(new FragmentGame(), getString(R.string.tabTitle_gmae));
+        adapter.addFrag(new FragmentBBS(), getString(R.string.tabTitle_bbs));
+        adapter.addFrag(new FragmentJrs(), getString(R.string.tabTitle_hupuJrs));
 
         viewPager.setAdapter(adapter);
 

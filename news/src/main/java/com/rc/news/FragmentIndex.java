@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.rc.news.adapter.MyListAdapter;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,7 +21,7 @@ import java.util.List;
 public class FragmentIndex extends Fragment {
 
 /*
-    Day 1 注释
+    Day nba_1 注释
 
     ViewPager viewPager =(ViewPager)findViewById(R.id.viewpager);
 
