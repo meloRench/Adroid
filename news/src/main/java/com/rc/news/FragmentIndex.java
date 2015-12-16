@@ -2,10 +2,15 @@ package com.rc.news;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 /**
@@ -14,6 +19,8 @@ import android.widget.TextView;
 public class FragmentIndex extends Fragment {
 
 /*
+    Day 1 注释
+
     ViewPager viewPager =(ViewPager)findViewById(R.id.viewpager);
 
 
@@ -35,6 +42,7 @@ public class FragmentIndex extends Fragment {
     private ViewPager viewPager;
     private MyFragmentAdapter adapter;
 */
+   /* Day2 原方法（可用）
     private String content;
     private View view;
 
@@ -57,7 +65,32 @@ public class FragmentIndex extends Fragment {
         TextView tvContent = (TextView)view.findViewById(R.id.tab_content);
         tvContent.setText(content + "");
     }
+*/
+    private MyListAdapter mAdapter;
 
+    private String mItemData = " hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello ";
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.myfragment,container,false);
+
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment_list);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+
+        String[] listItems = mItemData.split(" ");
+
+        List<String> list = new ArrayList<>();
+        Collections.addAll(list, listItems);
+
+        mAdapter = new MyListAdapter(list);
+        recyclerView.setAdapter(mAdapter);
+        recyclerView.setHasFixedSize(true);
+
+        return view;
+    }
 
 
 

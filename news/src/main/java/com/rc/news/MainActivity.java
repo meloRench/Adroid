@@ -4,16 +4,12 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_bbs)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_hupuJrs)));
 */
-//        MyAdapter adapter =new MyAdapter(getSupportFragmentManager());
+//        MyFragmentAdapter adapter =new MyFragmentAdapter(getSupportFragmentManager());
 //        adapter.addFrag(new )
 //        viewPager.setAdapter(adapter);
 
@@ -87,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
     private void initTabLayout(){
         TabLayout tabLayout=(TabLayout)findViewById(R.id.tabs);
         ViewPager viewPager=(ViewPager)findViewById(R.id.viewpager);
+/*
 
         List<String> tablist =new ArrayList<>();
         tablist.add(getString(R.string.tabTitle_news));
@@ -95,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         tablist.add(getString(R.string.tabTitle_bbs));
         tablist.add(getString(R.string.tabTitle_hupuJrs));
 
-        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+
 
         tabLayout.addTab(tabLayout.newTab().setText(tablist.get(0)));
         tabLayout.addTab(tabLayout.newTab().setText(tablist.get(1)));
@@ -105,14 +102,26 @@ public class MainActivity extends AppCompatActivity {
 
         List<Fragment> fragmentList = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            Fragment f1 = new MyFragment();
+            Fragment f1 = new FragmentIndex();
             Bundle bundle = new Bundle();
             bundle.putString("content", "hahaha");
             f1.setArguments(bundle);
             fragmentList.add(f1);
         }
 
-        MyAdapter adapter=new MyAdapter(getSupportFragmentManager(),fragmentList,tablist);
+*/
+
+
+        MyFragmentAdapter adapter=new MyFragmentAdapter(getSupportFragmentManager());
+
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+
+        adapter.addFrag(new FragmentIndex(), getString(R.string.tabTitle_news));
+        adapter.addFrag(new FragmentIndex(), getString(R.string.tabTitle_pics));
+        adapter.addFrag(new FragmentIndex(), getString(R.string.tabTitle_gmae));
+        adapter.addFrag(new FragmentIndex(), getString(R.string.tabTitle_bbs));
+        adapter.addFrag(new FragmentIndex(), getString(R.string.tabTitle_hupuJrs));
+
         viewPager.setAdapter(adapter);
 
         tabLayout.setupWithViewPager(viewPager);
@@ -120,4 +129,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 }
