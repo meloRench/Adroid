@@ -11,7 +11,7 @@ import android.widget.TextView;
 /**
  * Created by root on 15-12-15.
  */
-public class MyFragment extends Fragment {
+public class FragmentIndex extends Fragment {
 
 /*
     ViewPager viewPager =(ViewPager)findViewById(R.id.viewpager);
@@ -27,13 +27,13 @@ public class MyFragment extends Fragment {
     tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_hupuJrs)));
 
     */
-//        MyAdapter adapter =new MyAdapter(getSupportFragmentManager());
+//        MyFragmentAdapter adapter =new MyFragmentAdapter(getSupportFragmentManager());
 //        adapter.addFrag(new )
 //        viewPager.setAdapter(adapter);
 
    /* private TabLayout tabLayout ;
     private ViewPager viewPager;
-    private MyAdapter adapter;
+    private MyFragmentAdapter adapter;
 */
     private String content;
     private View view;
