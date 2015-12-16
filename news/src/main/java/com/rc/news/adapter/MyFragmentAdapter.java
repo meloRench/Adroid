@@ -1,4 +1,4 @@
-package com.rc.news;
+package com.rc.news.adapter;
 
 //import android.app.Fragment;
 
