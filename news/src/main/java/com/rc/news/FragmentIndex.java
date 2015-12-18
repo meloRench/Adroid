@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.rc.news.adapter.MyListAdapter;
+import com.rc.news.adapter.IndexAdapter;
 
+
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
 
 
 /**
@@ -20,74 +22,29 @@ import java.util.List;
  */
 public class FragmentIndex extends Fragment {
 
-/*
-    Day nba_1 注释
+    private List<FragmentIndex.IndexSerializable> picList;
+    private IndexAdapter mAdapter;
 
-    ViewPager viewPager =(ViewPager)findViewById(R.id.viewpager);
-
-
-    TabLayout tabLayout =(TabLayout)findViewById(R.id.tabs);
-    tabLayout.setupWithViewPager(viewPager);
-
-    tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_news)));
-    tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_pics)));
-    tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_gmae)));
-    tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_bbs)));
-    tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_hupuJrs)));
-
-    */
-//        MyFragmentAdapter adapter =new MyFragmentAdapter(getSupportFragmentManager());
-//        adapter.addFrag(new )
-//        viewPager.setAdapter(adapter);
-
-   /* private TabLayout tabLayout ;
-    private ViewPager viewPager;
-    private MyFragmentAdapter adapter;
-*/
-   /* Day2 原方法（可用）
-    private String content;
-    private View view;
-
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-
-
-    }
-
-    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle saveInstanceState){
-         view=inflater.inflate(R.layout.myfragment,container,false);
-
-        return view;
-
-
-    }
-    public void onActivityCreated(Bundle savedInstanceState){
-        super.onActivityCreated(savedInstanceState);
-        content = getArguments().getString("content");
-        TextView tvContent = (TextView)view.findViewById(R.id.tab_content);
-        tvContent.setText(content + "");
-    }
-*/
-    private MyListAdapter mAdapter;
-
-    private String mItemData = " hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello ";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.myfragment,container,false);
+        View view = inflater.inflate(R.layout.fragment_index,container,false);
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment_list);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment_index_list);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
 
+        picList =new ArrayList<>();
 
-        String[] listItems = mItemData.split(" ");
+        picList.add(new IndexSerializable("年迈邓肯，宣布本赛季结束退役",R.mipmap.nba_1));
+        picList.add(new IndexSerializable("科比成功登顶NBA得分王宝座",R.mipmap.nba_2));
+        picList.add(new IndexSerializable("克里斯保罗遗憾伤退，宣布退役",R.mipmap.nba_3));
+        picList.add(new IndexSerializable("安东尼宣布以自由球员身份加入洛杉矶湖人队", R.mipmap.nba_4));
+        picList.add(new IndexSerializable("疑似队伍不和，马刺替补席大打出手", R.mipmap.nba_7));
 
-        List<String> list = new ArrayList<>();
-        Collections.addAll(list, listItems);
 
-        mAdapter = new MyListAdapter(list);
+        mAdapter = new IndexAdapter(picList,getActivity());
         recyclerView.setAdapter(mAdapter);
         recyclerView.setHasFixedSize(true);
 
@@ -95,6 +52,41 @@ public class FragmentIndex extends Fragment {
     }
 
 
+    public class IndexSerializable implements Serializable {
+
+        private String title;
+        private int photoId;
+
+        public IndexSerializable(String name,int photoId){
+            this.title=name;
+            this.photoId=photoId;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+
+        public void setPhotoId(int photoId) {
+            this.photoId = photoId;
+        }
+
+        public int getPhotoId() {
+            return photoId;
+        }
+
+
+
+        public String getTitle() {
+            return title;
+        }
+    }
+
+
 
 
 }
+
+
+
+
