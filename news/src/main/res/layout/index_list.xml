@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:padding="5dp"
     >
 
@@ -13,18 +14,20 @@
         android:layout_height="match_parent"
         android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
-        app:cardCornerRadius="3dp"
+        app:cardCornerRadius="5dp"
         app:cardElevation="5dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ImageView
+
+            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/photo"
-                android:scaleType="fitXY"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_alignParentLeft="true" />
+                android:layout_height="80dp"
+                fresco:placeholderImage="@mipmap/nba_1"
+                />
+
             <TextView
                 android:id="@+id/title"
                 android:layout_toRightOf="@id/photo"

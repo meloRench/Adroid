@@ -1,3 +1,4 @@
+/*
 package com.rc.news;
 
 import android.os.Bundle;
@@ -25,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         initTabLayout();
 
-      /*  ViewPager viewPager =(ViewPager)findViewById(R.id.viewpager);
+      */
+/*  ViewPager viewPager =(ViewPager)findViewById(R.id.viewpager);
 
 
         TabLayout tabLayout =(TabLayout)findViewById(R.id.tabs);
@@ -36,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_gmae)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_bbs)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tabTitle_hupuJrs)));
-*/
+*//*
+
 //        MyFragmentAdapter adapter =new MyFragmentAdapter(getSupportFragmentManager());
 //        adapter.addFrag(new )
 //        viewPager.setAdapter(adapter);
@@ -50,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-   /*
+   */
+/*
     private void setupViewPager(){
         final ViewPager viewPager =(ViewPager)findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -58,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout =(ViewPager)findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
-*/
+*//*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -85,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     private void initTabLayout(){
         TabLayout tabLayout=(TabLayout)findViewById(R.id.tabs);
         ViewPager viewPager=(ViewPager)findViewById(R.id.viewpager);
+*/
 /*
 
         List<String> tablist =new ArrayList<>();
@@ -111,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
             fragmentList.add(f1);
         }
 
-*/
+*//*
+
 
 
         MyFragmentAdapter adapter=new MyFragmentAdapter(getSupportFragmentManager());
@@ -134,3 +141,4 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+*/

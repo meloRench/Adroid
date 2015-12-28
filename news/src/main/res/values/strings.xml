@@ -1,10 +1,33 @@
 <resources>
-    <string name="app_name">News</string>
+    <string name="app_name">News2.0</string>
     <string name="action_settings">Settings</string>
-    <string name="tabTitle_news">新闻</string>>
-    <string name="tabTitle_pics">图片</string>>
-    <string name="tabTitle_gmae">比赛</string>>
-    <string name="tabTitle_bbs">论坛</string>>
-    <string name="tabTitle_hupuJrs">球迷区</string>>
+    <string name="tabTitle_news">实时新闻</string>>
+    <string name="tabTitle_pics">精彩图片</string>>
+    <string name="tabTitle_gmae">经典比赛</string>>
+    <string name="tabTitle_bbs">录像再现</string>>
+    <string name="tabTitle_hupuJrs">吐槽专用</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">用户名</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in">登录或注册</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_email">用户名不正确</string>
+    <string name="error_invalid_password">密码太短啦</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="webview">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 
 </resources>

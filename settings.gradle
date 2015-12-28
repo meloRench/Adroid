@@ -1,1 +1,1 @@
-include ':app', ':test', ':viewpager', ':cardnews', ':app1', ':news', ':volleytest'
+include ':news'
